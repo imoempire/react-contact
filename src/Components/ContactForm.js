@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Button } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form'
 
 export default class ContactForm extends Component {
     constructor(props) {
@@ -6,7 +8,8 @@ export default class ContactForm extends Component {
         this.state={
                     Name: '',
                     Phone: '',
-                    Location: ''
+                    Location: '',
+                    
                 }
     };
     handleChange=(e)=>{
@@ -18,37 +21,41 @@ export default class ContactForm extends Component {
         this.setState({
             Name: '',
             Phone: '',
-            Location: ''
+            Location: '',
         })
     }
     render() {
         return (
             <>
-     <form onSubmit={this.handleSubmit}>
-         <div className="form-control">
-         <input type="text" name="Name" htmlFor="Name"
-         placeholder="Name" 
+     <Form onSubmit={this.handleSubmit} style={{color: 'white' }}>
+         <Form.Group controlId="formBasicName">
+         <Form.Label htmlFor="name">Name</Form.Label>
+         <Form.Control type="text" name="Name" htmlFor="Name"
+         placeholder="Name" className="input"
          onChange={this.handleChange} 
          value={this.state.Name} 
          />
-         </div>
-         <div className="form-control">
-         <input type="number" name="Phone" htmlFor="Phone"
-         placeholder="Phone"  max="12"
+         </Form.Group>
+         <Form.Group controlId="formBasicNumber">
+          <Form.Label htmlFor="Number">Phone</Form.Label>
+         <Form.Control type="number" name="Phone" htmlFor="Phone"
+         className="input"
+         placeholder="Phone"
          onChange={this.handleChange} 
          value={this.state.Phone} 
          />
-         </div>
-         <div className="form-control">
-         <input type="text" name="Location" htmlFor="Location" 
+         </Form.Group>
+         <Form.Group controlId="formBasicLocation">
+             <Form.Label htmlFor="Location">Location</Form.Label>
+         <Form.Control type="text" name="Location" htmlFor="Location" 
+         className="input"
          placeholder="Location" 
-         onChange={this.handleChange} value={this.stateLocation} 
+         onChange={this.handleChange} 
+         value={this.state.Location} 
          />
-         </div>
-         <div className="form-control">
-            <button type="submit">Add To Contact</button>
-         </div>
-     </form>
+         </Form.Group>
+            <Button variant="primary" type="submit">Add To Contact</Button>
+     </Form>
             </>
         )
     }
