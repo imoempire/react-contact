@@ -20,7 +20,7 @@ const Contact=({ contact, handleDeleteContact, handleEditContact}) => {
           <ListGroup.Item>Phone: {contact.Phone}</ListGroup.Item>
           <ListGroup.Item>Location: {contact.Location}</ListGroup.Item>
           </ListGroup>
-          <Button onClick={deleteHandle}>Delete</Button>
+          <Button onClick={deleteHandle}>Delete</Button><br />
           <Button onClick={handleShow}>Edit</Button>
           </Card>
 
